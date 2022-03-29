@@ -1,5 +1,5 @@
 import React, {useState, useRef} from 'react'
-import {GrSettingsOption} from  "react-icons/gr"
+import {GrSettingsOption, GrTrigger} from  "react-icons/gr"
 import PropTypes from 'prop-types'
 import getIt from 'get-it'
 import jsonResponse from 'get-it/lib/middleware/jsonResponse'
@@ -129,7 +129,7 @@ const deploy = function(site, secrets, setOutput, cb) {
         />)}
         <div className={styles.footer}>
             <Button bleed color="primary" kind="simple" onClick={do_deploy}>
-              publish
+            <GrTrigger /> publish
             </Button>
           </div>
 
