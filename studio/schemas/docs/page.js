@@ -23,6 +23,19 @@ export default {
       title: 'Body'
     },
     {
+      name: 'termine',
+      title: 'Termine',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [
+            {type: 'termin'},
+          ]
+        }
+      ]
+    },
+    {
       title: "Sections",
       name: "sections",
       type: 'array',

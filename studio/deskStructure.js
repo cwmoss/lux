@@ -8,7 +8,7 @@ import { GoBrowser as PageIcon, GoHome, GoSettings, GoPencil } from "react-icons
 //import PreviewIFrame from './src/components/previewIFrame'
 
 const hiddenDocTypes = (listItem) =>
-  !['route', 'navigation', 'content', 'page', 'site_settings', 'gallery_page', 'category'].includes(
+  !['route', 'navigation', 'content', 'page', 'site_settings', 'gallery_page', 'category', 'termin'].includes(
     listItem.getId()
   )
 
@@ -16,7 +16,11 @@ export default () =>
   S.list()
     .title('Content')
     .items([
-      
+      S.listItem()
+        .title('Termine')
+        .schemaType('termin')
+        .child(S.documentTypeList('termin').title('Termine').defaultOrdering([{ field: "datum", direction: "desc" }])),
+
       S.listItem()
         .title('Inhalte')
         .schemaType('content')

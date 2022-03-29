@@ -19,6 +19,7 @@ import nav_item from './obj/nav_item'
 import body_text from './obj/body_text'
 import excerpt_text from './obj/excerpt_text'
 import section from './obj/section'
+import termin from './docs/termin'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -32,7 +33,7 @@ export default createSchema({
     navigation,
     page,
     content,
-
+    termin,
     gallery,
     keyval,
     main_image,
