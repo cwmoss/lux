@@ -9,6 +9,10 @@
   composes: header from "part:@sanity/dashboard/widget-styles";
 }
 
+header div{
+  margin:16px;
+  font-size: 12px;
+}
 .title {
   composes: title from "part:@sanity/dashboard/widget-styles";
 }

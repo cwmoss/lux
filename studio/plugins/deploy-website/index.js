@@ -1,4 +1,5 @@
 import React, {useState, useRef} from 'react'
+import {GrSettingsOption} from  "react-icons/gr"
 import PropTypes from 'prop-types'
 import getIt from 'get-it'
 import jsonResponse from 'get-it/lib/middleware/jsonResponse'
@@ -114,8 +115,9 @@ const deploy = function(site, secrets, setOutput, cb) {
 
       <div className={styles.container}>
         <header className={styles.header}>
-          <h2 className={styles.title}>Seite aktualisieren: {site.name} { loading ? spin : null }</h2>
-          <div>{secrets && (<span dangerouslySetInnerHTML={{ __html: secrets.hook }}></span>)} <span onClick={()=>{setShowSettings(true)}}>Settings</span></div>
+          <h2 className={styles.title}>Seite aktualisieren: {site.name} <span onClick={()=>{setShowSettings(true)}} title="settings"><GrSettingsOption /></span>
+          { loading ? spin : null }</h2>
+          
         </header>
         {showSettings && (
         <SettingsView

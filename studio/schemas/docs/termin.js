@@ -1,9 +1,12 @@
 import * as util from '../../util'
 
+import { GrCalendar } from "react-icons/gr";
+
 export default {
   type: 'document',
   name: 'termin',
   title: 'Termin',
+  icon: GrCalendar,
   fields: [
       {
         name: 'datum',

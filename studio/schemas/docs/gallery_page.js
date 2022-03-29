@@ -1,7 +1,10 @@
+import { GrGallery } from "react-icons/gr";
+
 export default {
   name: 'gallery_page',
   type: 'document',
   title: 'Gallery',
+  icon: GrGallery,
   fields: [
     {
       name: 'title',
@@ -22,5 +25,12 @@ export default {
       title: 'Images',
       type: 'gallery'
     }
-  ]
+  ],
+  preview: {
+    select: {
+      title: 'title',
+      media: 'gallery.images.0'
+    }
+  }
+
 }
