@@ -1,0 +1,20 @@
+{
+    "name": "cwmoss/slowfoot",
+    "type": "project",
+    "version": "1.0",
+    "repositories": [
+        {
+        "type": "vcs",
+        "url": "https://github.com/cwmoss/slowfoot-lib"
+        }
+    ],
+    "autoload": {
+        "files": [
+            "src/helper.php"
+        ]
+    },
+    "require": {
+        "cwmoss/slowfoot-lib": "@dev",
+        "sanity/sanity-php": "^1.5"
+    }
+}
