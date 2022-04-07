@@ -24,10 +24,10 @@ debug_js("navigation", $nav);
 </head>
 <body> 
     <header>
-        <h1><span class="l">L.</span><span class="u">U.</span><span class="x">X</span></h1>
+        <h1><span class="l">L.</span><span class="u">U.</span><span class="x" title="<?=h($title)?>">X</span></h1>
 
         <?if ($backbutton) {?>
-        <nav><a href="index" class="back">Zurück</a></nav>
+        <nav><a href="/" class="back">Zurück</a></nav>
         <?}?>
     </header>
     

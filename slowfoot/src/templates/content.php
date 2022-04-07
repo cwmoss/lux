@@ -10,7 +10,7 @@ $links = [];
 $subtitle = "untertitel";
 $backbutton=true;
 ?>
- <article class="">
+<article class="">
         <h2><?=$page['title']?></h2>
         
         <?=$sanity_text($page['body'])?>

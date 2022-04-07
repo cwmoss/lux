@@ -6,7 +6,7 @@ export default {
     {
       name: 'title',
       type: 'string',
-      title: 'Title',
+      title: 'Titel',
     },
     {
       name: 'slug',
@@ -21,19 +21,19 @@ export default {
       name: 'is_page',
       type: 'boolean',
       description:
-        'Does it have a its own Page?',
-      title: 'No / Yes',
+        'Erzeuge eine eigenständige Seite?',
+      title: 'Nein / Ja',
     },
     {
       name: 'main_image',
       type: 'main_image',
-      title: 'Main image'
+      title: 'Bild'
     },
     
     {
       name: 'body',
       type: 'body_text',
-      title: 'Body'
+      title: 'Text'
     },
     {
       name: 'excerpt',

@@ -9,7 +9,7 @@ export default {
     {
       name: 'caption',
       type: 'string',
-      title: 'Caption',
+      title: 'Bildunterschrift',
       options: {
         isHighlighted: true
       }
@@ -17,9 +17,8 @@ export default {
     {
       name: 'alt',
       type: 'string',
-      title: 'Alternative text',
-      description: 'Important for SEO and accessibility.',
-      validation: Rule => Rule.error('You have to fill out the alternative text.').required(),
+      title: 'Alternativer text',
+      description: 'Für beeinträchtigte Menschen (Accessibility)',
       options: {
         isHighlighted: true
       }

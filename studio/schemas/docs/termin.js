@@ -20,6 +20,11 @@ export default {
       title: 'Title',
     },
     {
+      name: 'subtitle',
+      type: 'string',
+      title: 'Untertitel',
+    },
+    {
         name: 'admission_is_free',
         type: 'boolean',
         description:
@@ -35,8 +40,13 @@ export default {
     {
       name: 'body',
       type: 'body_text',
-      title: 'Body'
-    }
+      title: 'Veranstaltungstext'
+    },
+    {
+      name: 'main_image',
+      type: 'main_image',
+      title: 'Ein Bild (optional)'
+    },
   ],
   preview: {
     select: {

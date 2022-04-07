@@ -13,7 +13,8 @@ return [
         'sanity' => [
             'dataset' => 'production',
             'projectId' => 'pna8s3iv', #$_ENV['SANITY_ID'],
-            'useCdn' => true,
+            'useCdn' => false,
+            'token' => $_ENV['SANITY_TOKEN'],
             // 'query' => '*[_type=="custom-type-query"]'
         ]
        
@@ -34,6 +35,7 @@ return [
     'assets' => [
         'dir' => 'images',
         'path' => '/images',
+        'download' => true,
         'profiles' => [
             'small' => [
                 'size' => '600x400',
@@ -41,7 +43,7 @@ return [
             ],
             'gallery' => [
                 'size' => '700x', 
-                '4c' => ['creator'=>'Robbie Øfchen']
+            //    '4c' => ['creator'=>'Robbie Øfchen']
             ]
         ]
     ],
@@ -49,10 +51,18 @@ return [
         'sanity'
     ],
     'hooks' => [
-        'on_load' => function ($row, $ds) {
-            // [_id] => a-_a:325
-         
-            return $row;
+        'after_build' => function ($conf) {
+            file_put_contents($conf['dist'].'/Version', date("YmdHis"));
+            
+            #$cmd = "/usr/bin/rsync -av {$conf['dist']}/ {$conf['base']}/../www/htdocs/";
+            $cmd = "cp -R {$conf['dist']}/* {$conf['base']}/../www/htdocs/";
+            print "$cmd\n";
+            $output ="";
+            $ok = exec($cmd, $output, $rc);
+            var_dump($output);
+            var_dump($rc);
+           
         }
     ]
 ];
+# rsync -av /WWWROOT/slowfoot/dist/ /WWWROOT/slowfoot/../www/htdocs/

@@ -8,15 +8,24 @@ $termine = $page['termine'];
 $sections = $page['sections'];
 ?>
 
+<?if ($page['body']) {?>
+	<aside>
+        <?=$sanity_text($page['body']); ?>
+    </aside>
+<?}?>
+
 <main class="dates">
 	<?if ($termine) {
     foreach ($termine as $termin) {
-        $doc = $ref($termin);
+        $doc = $ref($termin); #strtotime($doc['datum'])
         $eintritt = $doc['admission_text']??($doc['admission_is_free']?'Eintritt Frei':''); ?>
         <section>
-            <div class="when"><?=date("d.m", strtotime($doc['datum']))?></div>
+            <div class="when"><?=termin_date($doc['datum'])?></div>
             <div class="details">
                 <h2><?=$doc['title']?></h2>
+				<?if ($doc['subtitle']) {?>
+					<h3><?=$doc['subtitle']?></h3>
+				<?} ?>
 				<?if ($doc['body']) {?>
 					<?=$sanity_text($doc['body']); ?>
 				<?} ?>
@@ -38,11 +47,12 @@ $sections = $page['sections'];
 	<?}?>
 </main>
 
+
 <?foreach ($sections as $section) {
         $doc = $ref($section['ref'])
     ?>
 <aside>
-        <?=$sanity_text($doc['body']); ?>
+        <?=$sanity_text($doc['body'], ['profile'=>'small']); ?>
     </aside>
 <?php
     }?>

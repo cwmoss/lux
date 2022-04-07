@@ -12,6 +12,8 @@ export default {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
+      description:
+        'Vorsicht beim Ändern!',
       options: {
         source: 'title',
         maxLength: 96
@@ -36,7 +38,9 @@ export default {
       ]
     },
     {
-      title: "Sections",
+      title: "Inhaltsbereich",
+      description:
+        'Hier können Dokumente aus dem Bereich "Inhalte" angezeigt werden.',
       name: "sections",
       type: 'array',
       of: [

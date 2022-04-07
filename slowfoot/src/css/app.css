@@ -30,12 +30,6 @@ main, h1, nav, aside, section{
   /* margin: 0 1em 3em 1em; */
 }
 
-@media (min-width:600px){
-  main, h1, nav, aside{
-      /* width: 60%; 
-      margin: 0 auto 3em auto; */
-  }
-}
 
 header{
   position: sticky;
@@ -64,10 +58,10 @@ h1{
   
 }
 h1 .u{
-  font-style: italic;
+  /* font-style: italic; */
 }
 h1 .l{
-  font-style: italic;
+  /* font-style: italic; */
 }
 h1 span{
  
@@ -76,6 +70,10 @@ main.dates{
   width: 100%;
   
   
+}
+article{
+  background-color: rgba(255,255,255,60%);
+  padding: 1em;
 }
 section{
   display: flex;
@@ -91,9 +89,11 @@ section{
   border-bottom: 2px solid white;
 }
 section .when{
-  width: 220px;
+  width: 200px;
+  flex-shrink: 0;
   font-size: 64px;
   line-height: 1.0;
+  text-transform: uppercase;
 }
 section h2{
   font-size: 64px;
@@ -118,7 +118,8 @@ aside{
 
 nav{
   
-  
+  position: absolute;
+  bottom: 0;
   padding: 1em;
   color: white;
 
@@ -136,7 +137,8 @@ nav a{
 }
 
 footer{
-  min-height: 600px;
+  position: relative;
+  min-height: 200px;
   background-image: url(../gfx/lux-blink-small-pano-ani-xs.gif);
   background-size: cover;
 }
@@ -145,3 +147,22 @@ p, li{
   max-width: 50ch;
 }
 
+
+@media (min-width:600px){
+  main, h1, nav, aside{
+      /* width: 60%; 
+      margin: 0 auto 3em auto; */
+  }
+  section{
+    flex-wrap: nowrap;
+  }
+  footer{
+    min-height: 600px;
+    background-size: cover;
+
+  }
+  nav{
+    position: relative;
+    padding: 1em;
+  }
+}

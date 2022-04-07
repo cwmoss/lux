@@ -16,3 +16,5 @@ movies.json
 data.ms
 images/*
 cache/*
+rendered-images/
+download/
