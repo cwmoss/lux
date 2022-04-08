@@ -3,7 +3,7 @@ $settings = $get('site_settings');
 $title = $settings['title'];
 $nav = $ref($settings['nav_footer']);
 debug_js("navigation", $nav);
-
+$rev=3;
 ?>
 <!doctype html>
 <html>
@@ -16,7 +16,7 @@ debug_js("navigation", $nav);
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Arvo:wght@700&family=Inter:wght@400;700&display=swap" rel="stylesheet"> 
 
-    <link rel="stylesheet" href="<?=path_asset('/css/app.css', true)?>" type="text/css">
+    <link rel="stylesheet" href="<?=path_asset('/css/app.css', $rev)?>" type="text/css">
 
     
     <title><?=$title?></title>
@@ -24,9 +24,9 @@ debug_js("navigation", $nav);
 </head>
 <body> 
     <header>
-        <h1><span class="l">L.</span><span class="u">U.</span><span class="x" title="<?=h($title)?>">X</span></h1>
+        <h1 class="logo"><a href="/"><span class="l">L.</span><span class="u">U.</span><span class="x" title="<?=h($title)?>">X</span></a></h1>
 
-        <?if ($backbutton) {?>
+        <?if (false && $backbutton) {?>
         <nav><a href="/" class="back">Zurück</a></nav>
         <?}?>
     </header>
@@ -47,7 +47,7 @@ debug_js("navigation", $nav);
     </nav>
 </footer>
 
-<script src="<?=path_asset('/js/app.js')?>"></script>
+<script src="<?=path_asset('/js/app.js', $rev)?>"></script>
 </body>
 
 </html>

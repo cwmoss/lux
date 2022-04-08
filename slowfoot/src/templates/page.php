@@ -21,6 +21,11 @@ $sections = $page['sections'];
         $eintritt = $doc['admission_text']??($doc['admission_is_free']?'Eintritt Frei':''); ?>
         <section>
             <div class="when"><?=termin_date($doc['datum'])?></div>
+			<?if ($doc['main_image']) {
+            $bild=$ref($doc['main_image']['asset']); ?>
+				<div class="bild"><?=$image_tag($bild, 'small')?></div>
+			<?php
+        } ?>
             <div class="details">
                 <h2><?=$doc['title']?></h2>
 				<?if ($doc['subtitle']) {?>
