@@ -4,25 +4,9 @@
 
 ```
 git clone https://github.com/cwmoss/lux.git
-cd slowfoot
+cd lux/slowfoot
 composer install
 
 # develop site
-php -S localhost:1199 -t mumok/ dev.php
-
-# build site
-php build.php
+./slowfoot dev -f
 ```
-
-### optional
-
-```
-npm i -g groq-cli
-
-curl -o pgclimb https://github.com/lukasmartinelli/pgclimb/releases/download/v0.3/pgclimb_darwin_amd64
-chmod +x pgclimb
-
-# strongly recommended
-brew install sassc
-```
-
