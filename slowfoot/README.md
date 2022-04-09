@@ -3,7 +3,7 @@
 ## install
 
 ```
-git clone https://github.com/cwmoss/slowfoot.git
+git clone https://github.com/cwmoss/lux.git
 cd slowfoot
 composer install
 
