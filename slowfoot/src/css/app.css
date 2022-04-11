@@ -5,7 +5,7 @@
   --color-secondary: #00ffcf;
   --ff-main: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   --ff-alt: Arvo, Georgia, 'Times New Roman', Times, serif;
-  --deg: 0;
+  --deg: 60;
 }
 
 ::selection {
@@ -63,10 +63,10 @@ h1{
   transition: 20s filter linear;
 }
 .logo a:hover{
-  border: 4px solid hsl(var(--deg), 98%, 49%);
+  border: 4px solid hsl(var(--deg), 100%, 40%);
   filter: hue-rotate(1360deg);
   border-radius: 6px;
-  box-shadow: 0 0 1em gold;
+  box-shadow: 0 0 1em yellow;
 }
 h1 .u{
   /* font-style: italic; */
@@ -207,3 +207,123 @@ p, li{
     padding: 1em;
   }
 }
+
+article.gallery_page{
+  background-color: white;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.gallery:after {
+  content:'';
+  display:block;
+  flex-grow: 10;
+}
+
+.gallery div {
+  height: 40vh;
+  flex-grow: 1;
+}
+
+.gallery div img {
+  max-height: 100%;
+  min-width: 100%;
+  object-fit: cover;
+  vertical-align: bottom;
+}
+
+.dialog-content img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+[data-toggle]{
+    cursor: pointer;
+}
+
+/* polyfill */
+
+dialog {
+  position: absolute;
+  left: 0; right: 0;
+  width: -moz-fit-content;
+  width: -webkit-fit-content;
+  width: fit-content;
+  height: -moz-fit-content;
+  height: -webkit-fit-content;
+  height: fit-content;
+  margin: auto;
+  border: solid;
+  padding: 1em;
+  background: white;
+  color: black;
+  display: block;
+}
+
+dialog:not([open]) {
+  display: none;
+}
+
+dialog + .backdrop {
+  position: fixed;
+  top: 0; right: 0; bottom: 0; left: 0;
+  background: rgba(0,0,0,0.1);
+}
+
+._dialog_overlay {
+  position: fixed;
+  top: 0; right: 0; bottom: 0; left: 0;
+}
+
+dialog.fixed {
+  position: fixed;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+
+
+
+dialog {
+  /* position: relative;
+  z-index: 100; */
+  width: 80%;
+  max-width: 100%;
+  padding: 1.5rem;
+  height: 80%;
+  border: none;
+  border-radius: 2px;
+}
+
+dialog::backdrop {
+    background-color: rgba(0,0,0,.8);
+    /* animation: 2s fade-in; */
+  }
+  dialog + .backdrop {
+      position: fixed;
+      top: 0; right: 0; bottom: 0; left: 0;
+      background: rgba(0,0,0,0.8);
+    }
+
+  dialog header{
+      position: relative
+  }
+  dialog .btn-close{
+      font-weight: 700;
+      position: absolute;
+      font-size: 12px;
+      line-height: 1;
+      padding:4px 6px;
+      right:-1.2rem;
+      top:-1.2rem;
+      border: none;
+      background-color: transparent;
+  }
+  dialog .btn-close:hover{
+      border-radius: 2px;
+      background-color: #ddd;
+  }

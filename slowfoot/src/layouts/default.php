@@ -3,7 +3,7 @@ $settings = $get('site_settings');
 $title = $settings['title'];
 $nav = $ref($settings['nav_footer']);
 debug_js("navigation", $nav);
-$rev=3;
+$rev=5;
 ?>
 <!doctype html>
 <html>
@@ -17,7 +17,7 @@ $rev=3;
     <link href="https://fonts.googleapis.com/css2?family=Arvo:wght@700&family=Inter:wght@400;700&display=swap" rel="stylesheet"> 
 
     <link rel="stylesheet" href="<?=path_asset('/css/app.css', $rev)?>" type="text/css">
-
+    <script src="<?=path_asset('/js/dialog-polyfill.js')?>"></script>
     
     <title><?=$title?></title>
 

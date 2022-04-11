@@ -31,6 +31,7 @@ return [
     'templates' => [
         'page' => '/:slug.current',
         'content' => '/:slug.current',
+        'gallery_page' => '/galerie/:slug.current',
     ],
     'assets' => [
         'dir' => 'images',
@@ -42,7 +43,11 @@ return [
                 'mode' => 'fit'
             ],
             'gallery' => [
-                'size' => '700x', 
+                'size' => 'x300', 
+            //    '4c' => ['creator'=>'Robbie Øfchen']
+            ],
+            'gallery_big' => [
+                'size' => '900x', 
             //    '4c' => ['creator'=>'Robbie Øfchen']
             ]
         ]
