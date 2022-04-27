@@ -5,7 +5,7 @@ layout('default');
 $links = [];
 $subtitle = "untertitel";
 $termine = $page['termine'];
-$sections = $page['sections'];
+$sections = $page['sections']??[];
 ?>
 
 <?if ($page['body']) {?>
