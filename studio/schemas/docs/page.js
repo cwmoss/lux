@@ -6,7 +6,7 @@ export default {
     {
       name: 'title',
       type: 'string',
-      title: 'Title',
+      title: 'Titel',
     },
     {
       name: 'slug',
@@ -22,11 +22,13 @@ export default {
     {
       name: 'body',
       type: 'body_text',
-      title: 'Body'
+      title: 'Einleitungstext'
     },
     {
       name: 'termine',
-      title: 'Termine',
+      title: 'Terminebereich',
+      description:
+        'Diese Termine aus "Inhalte/Termine" werden auf der Homepage angezeigt.',
       type: 'array',
       of: [
         {
@@ -40,7 +42,7 @@ export default {
     {
       title: "Inhaltsbereich",
       description:
-        'Hier können Dokumente aus dem Bereich "Inhalte" angezeigt werden.',
+        'Diese Texte aus "Inhalte/Texte" werden auf der Homepage angezeigt.',
       name: "sections",
       type: 'array',
       of: [

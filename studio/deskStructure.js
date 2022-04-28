@@ -14,20 +14,24 @@ const hiddenDocTypes = (listItem) =>
 
 export default () =>
   S.list()
-    .title('Content')
+    .title('Inhalte')
     .items([
       S.listItem()
         .title('Termine')
         .schemaType('termin')
-        .child(S.documentTypeList('termin').title('Termine').defaultOrdering([{ field: "datum", direction: "desc" }])),
+        .child(
+          S.documentTypeList('termin')
+          .title('Termine')
+          .defaultOrdering([{ field: "datum", direction: "desc" }])
+        ),
 
       S.listItem()
-        .title('Inhalte')
+        .title('Texte')
         .schemaType('content')
-        .child(S.documentTypeList('content').title('Inhalte')),
+        .child(S.documentTypeList('content').title('Texte')),
 
       S.listItem()
-        .title('Seiten')
+        .title('Homepage')
         .schemaType('page')
         .child(S.documentTypeList('page')),
 
