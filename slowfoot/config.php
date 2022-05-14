@@ -43,7 +43,7 @@ return [
                 'mode' => 'fit'
             ],
             'gallery' => [
-                'size' => 'x300', 
+                'size' => 'x400', 
             //    '4c' => ['creator'=>'Robbie Øfchen']
             ],
             'gallery_big' => [

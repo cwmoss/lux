@@ -13,6 +13,11 @@
             "src/helper.php"
         ]
     },
+    "scripts": {
+        "post-install-cmd": "@setup",
+        "post-update-cmd": "@setup",
+        "setup": "@php slowfoot setup"
+    },
     "require": {
         "cwmoss/slowfoot-lib": "@dev",
         "sanity/sanity-php": "^1.5"

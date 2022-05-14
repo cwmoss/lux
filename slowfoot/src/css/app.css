@@ -212,6 +212,11 @@ article.gallery_page{
   background-color: white;
 }
 
+/*
+https://css-tricks.com/adaptive-photo-layout-with-flexbox/
+https://egghead.io/lessons/flexbox-create-an-automatically-responsive-flexbox-gallery
+*/
+
 .gallery {
   display: flex;
   flex-wrap: wrap;
@@ -235,95 +240,35 @@ article.gallery_page{
   vertical-align: bottom;
 }
 
-.dialog-content img{
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+.gallery div:last-child {
+  flex-grow: 10;
 }
 
-[data-toggle]{
-    cursor: pointer;
-}
-
-/* polyfill */
-
-dialog {
-  position: absolute;
-  left: 0; right: 0;
-  width: -moz-fit-content;
-  width: -webkit-fit-content;
-  width: fit-content;
-  height: -moz-fit-content;
-  height: -webkit-fit-content;
-  height: fit-content;
-  margin: auto;
-  border: solid;
-  padding: 1em;
-  background: white;
-  color: black;
-  display: block;
-}
-
-dialog:not([open]) {
-  display: none;
-}
-
-dialog + .backdrop {
-  position: fixed;
-  top: 0; right: 0; bottom: 0; left: 0;
-  background: rgba(0,0,0,0.1);
-}
-
-._dialog_overlay {
-  position: fixed;
-  top: 0; right: 0; bottom: 0; left: 0;
-}
-
-dialog.fixed {
-  position: fixed;
-  top: 50%;
-  transform: translate(0, -50%);
-}
-
-
-
-
-dialog {
-  /* position: relative;
-  z-index: 100; */
-  width: 80%;
-  max-width: 100%;
-  padding: 1.5rem;
-  height: 80%;
-  border: none;
-  border-radius: 2px;
-}
-
-dialog::backdrop {
-    background-color: rgba(0,0,0,.8);
-    /* animation: 2s fade-in; */
+@media (max-aspect-ratio: 1/1) {
+  .gallery div {
+    height: 30vh;
   }
-  dialog + .backdrop {
-      position: fixed;
-      top: 0; right: 0; bottom: 0; left: 0;
-      background: rgba(0,0,0,0.8);
-    }
+}
 
-  dialog header{
-      position: relative
+@media (max-height: 480px) {
+  .gallery div {
+    height: 80vh;
   }
-  dialog .btn-close{
-      font-weight: 700;
-      position: absolute;
-      font-size: 12px;
-      line-height: 1;
-      padding:4px 6px;
-      right:-1.2rem;
-      top:-1.2rem;
-      border: none;
-      background-color: transparent;
+}
+
+@media (max-aspect-ratio: 1/1) and (max-width: 480px) {
+  .gallery {
+    flex-direction: row;
   }
-  dialog .btn-close:hover{
-      border-radius: 2px;
-      background-color: #ddd;
+
+  .gallery div {
+    height: auto;
+    width: 100%;
   }
+
+  .gallery img {
+    width: 100%;
+    max-height: 75vh;
+    min-width: 0;
+  }
+}

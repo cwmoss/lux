@@ -3,7 +3,7 @@ $settings = $get('site_settings');
 $title = $settings['title'];
 $nav = $ref($settings['nav_footer']);
 debug_js("navigation", $nav);
-$rev=5;
+$rev=6;
 ?>
 <!doctype html>
 <html>
@@ -16,8 +16,10 @@ $rev=5;
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Arvo:wght@700&family=Inter:wght@400;700&display=swap" rel="stylesheet"> 
 
+    <link rel="stylesheet" href="<?=path_asset('/js/glightbox.min.css')?>" />
+    <script src="<?=path_asset('/js/glightbox.min.js')?>"></script>
+
     <link rel="stylesheet" href="<?=path_asset('/css/app.css', $rev)?>" type="text/css">
-    <script src="<?=path_asset('/js/dialog-polyfill.js')?>"></script>
     
     <title><?=$title?></title>
 

@@ -23,7 +23,7 @@ $sections = $page['sections']??[];
             <div class="when"><?=termin_date($doc['datum'])?></div>
 			<?if ($doc['main_image']) {
             $bild=$ref($doc['main_image']['asset']); ?>
-				<div class="bild"><?=$image_tag($bild, 'small')?></div>
+				<div class="bild"><a href="<?=$image_url($bild, 'gallery_big')?>" class="ltbx"><?=$image_tag($bild, 'small')?></a></div>
 			<?php
         } ?>
             <div class="details">
@@ -57,7 +57,7 @@ $sections = $page['sections']??[];
         $doc = $ref($section['ref'])
     ?>
 <aside>
-        <?=$sanity_text($doc['body'], ['profile'=>'small']); ?>
+        <?=$sanity_text($doc['body'], ['profile'=>'small', 'lightbox'=>'gallery_big']); ?>
     </aside>
 <?php
     }?>
