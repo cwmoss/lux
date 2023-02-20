@@ -16,10 +16,6 @@ $rev = 6;
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
     <link rel="SHORTCUT ICON" type="image/png" href="/gfx/favicon-32x32.png">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-
     <link rel="stylesheet" href="<?= path_asset('/js/glightbox.min.css') ?>" />
     <script src="<?= path_asset('/js/glightbox.min.js') ?>"></script>
 
