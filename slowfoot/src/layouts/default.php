@@ -9,11 +9,12 @@ $rev = 6;
 
 ?>
 <!doctype html>
-<html>
+<html lang="de">
 
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta name="description" content="Leiseste Unterhaltung Xberg -- Club, Tanzbar, Partylocation in Berlin Kreuzberg">
     <link rel="SHORTCUT ICON" type="image/png" href="/gfx/favicon-32x32.png">
 
     <link rel="stylesheet" href="<?= path_asset('/js/glightbox.min.css') ?>" />

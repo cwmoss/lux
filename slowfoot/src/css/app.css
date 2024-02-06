@@ -160,6 +160,7 @@ section .bild{
 }
 .bild img{
   max-width: 200px;
+  height: auto;
 }
 section .details{
   /* padding-left: 1em; */
@@ -190,6 +191,7 @@ aside{
 }
 aside img{
   max-width: 100%;
+  height: auto;
 }
 nav{
   
