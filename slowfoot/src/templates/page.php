@@ -6,6 +6,8 @@ $links = [];
 $subtitle = "untertitel";
 $termine = $page['termine'];
 $sections = $page['sections'] ?? [];
+
+// $image_tag($bild, 'small')
 ?>
 
 <? if ($page['body']) { ?>
@@ -23,7 +25,10 @@ $sections = $page['sections'] ?? [];
                 <div class="when"><?= termin_date($doc['datum']) ?></div>
                 <? if ($doc['main_image']) {
                     $bild = $ref($doc['main_image']['asset']); ?>
-                    <div class="bild"><a href="<?= $image_url($bild, 'gallery_big') ?>" aria-label="Ich bin ein Bild, klick mich groß" class="ltbx"><?= $image_tag($bild, 'small') ?></a></div>
+                    <div class="bild">
+                        <a href="<?= $image_url($bild, 'gallery_big') ?>" aria-label="Ich bin ein Bild, klick mich groß" class="ltbx">
+                            <?= image_source_set($bild, [300, 600]) ?></a>
+                    </div>
                 <?php
                 } ?>
                 <div class="details">

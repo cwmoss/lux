@@ -1,7 +1,36 @@
 <?php
+
+use function slowfoot\image;
+use function slowfoot\image_url;
+
+function image_source_set($asset, array $widths) {
+    global $config;
+    $assetsconf = $config['assets'];
+    $imgs = [];
+    foreach ($widths as $w) {
+        dbg("sourceset", $w);
+        $imgs[$w] = image($asset, ['size' => $w . 'x'], $assetsconf);
+    }
+    dbg("images", $imgs);
+    $default = current($imgs);
+    $srcset = array_map(fn($img) => PATH_PREFIX . $assetsconf['path'] . '/' . $img['resize_url'] . ' ' . $img['resize'][0] . 'w', $imgs);
+    $srcset = join(', ', $srcset);
+    dbg("++ result", $srcset);
+    return html_tag("img", [
+        'src' => PATH_PREFIX . $assetsconf['path'] . '/' . $default['resize_url'],
+        'width' => $default['resize'][0],
+        'height' => $default['resize'][1],
+        'srcset' => $srcset,
+        'sizes' => '50vw',
+        'alt' => "",
+        'class' => '',
+        'loading' => 'lazy'
+    ]);
+}
+
 hook::add_filter('sanity.block_serializers', function ($serializers, $opts, $ds, $config) {
     return [
-        'marks'=>[
+        'marks' => [
             'link' => [
                 'head' => function ($mark) use ($ds) {
                     return '<a href="' . sanity_link_url($mark, $ds) . '">';
@@ -14,16 +43,16 @@ hook::add_filter('sanity.block_serializers', function ($serializers, $opts, $ds,
                 },
                 'tail' => '</a>'
             ],
-            
-        ]
-        ,
+
+        ],
         'main_image' => function ($item, $parent, $htmlBuilder) use ($ds, $opts, $config) {
             //print_r($item);
             $asset = $ds->ref($item['attributes']['asset']);
+            return image_source_set($asset, [300, 600, 900]);
             return \slowfoot\image_tag($asset, $opts, [], $config['assets']);
             return "<div>IMAGE! {$opts['profile']}</div>";
         },
-        
+
         'reference' => function ($item, $parent, $htmlBuilder) use ($ds) {
             // print_r($item);
             return sprintf(
@@ -32,12 +61,12 @@ hook::add_filter('sanity.block_serializers', function ($serializers, $opts, $ds,
                 $ds->get_path($item['attributes']['_ref'])
             );
         },
-        
-        'videoEmbed' =>function ($item, $parent, $htmlBuilder) {
+
+        'videoEmbed' => function ($item, $parent, $htmlBuilder) {
             // print_r($item);
             return sprintf('<div class="video">%s</div>', convertYoutube($item['attributes']['url']));
         },
-        
+
     ];
 });
 
@@ -46,8 +75,7 @@ hook::add_filter('sanity.block_serializers', function ($serializers, $opts, $ds,
     - a sanity#link object
     - a sanity#nav_item
 */
-function sanity_link($sl, $opts=[], $ds)
-{
+function sanity_link($sl, $opts = [], $ds) {
     $link = $sl['link'];
     if (!$link) {
         $link = $sl;
@@ -55,7 +83,7 @@ function sanity_link($sl, $opts=[], $ds)
     #print_r($link);
     $url = sanity_link_url($link, $ds);
 
-    $text = $opts['text']?:$sl['text'];
+    $text = $opts['text'] ?: $sl['text'];
     if (!$text) {
         if ($link['internal']) {
             $internal = $ds->ref($link['internal']);
@@ -67,32 +95,30 @@ function sanity_link($sl, $opts=[], $ds)
     return sprintf('<a href="%s/">%s</a>', $url, $text);
 }
 
-function sanity_link_url($link, $ds)
-{
-    return $link['internal'] ? $ds->get_path($link['internal']['_ref']) : ($link['route'] ? path_page($link['route']): $link['external']);
+function sanity_link_url($link, $ds) {
+    return $link['internal'] ? $ds->get_path($link['internal']['_ref']) : ($link['route'] ? path_page($link['route']) : $link['external']);
 }
 
-function termin_date($date, $with_weekday = true, $lang='de')
-{
+function termin_date($date, $with_weekday = true, $lang = 'de') {
     if (!is_numeric($date)) {
         $date = strtotime($date);
     }
-    $lang = strtolower($lang)=='de'?'de_DE':'en_US';
-    
+    $lang = strtolower($lang) == 'de' ? 'de_DE' : 'en_US';
+
     if (date("Y", $date) != date("Y")) {
         $Y = 'y';
     } else {
         $Y = '';
     }
-    if ($lang=="de_DE") {
-        $format = "d.M.".$Y;
+    if ($lang == "de_DE") {
+        $format = "d.M." . $Y;
         if ($with_weekday) {
-            $format = "ccc'<br>'".$format;
+            $format = "ccc'<br>'" . $format;
         }
     } else {
-        $format = "MMM d ".$Y;
+        $format = "MMM d " . $Y;
         if ($with_weekday) {
-            $format = 'eee, '.$format;
+            $format = 'eee, ' . $format;
         }
     }
     $formatter = new IntlDateFormatter($lang, IntlDateFormatter::FULL, IntlDateFormatter::FULL, null, null, $format);

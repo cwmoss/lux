@@ -8,8 +8,8 @@ return [
     // TODO: solve genenv vs ENV problem
     'path_prefix' => getenv('PATH_PREFIX') ?: $_ENV['PATH_PREFIX'] ?: '',
     'title_template' => '',
-    'store' => $is_buildhost?null:'sqlite',
-    'sources' => [ 
+    'store' => $is_buildhost ? null : 'sqlite',
+    'sources' => [
         'sanity' => [
             'dataset' => 'production',
             'projectId' => 'pna8s3iv', #$_ENV['SANITY_ID'],
@@ -17,7 +17,7 @@ return [
             'token' => $_ENV['SANITY_TOKEN'],
             // 'query' => '*[_type=="custom-type-query"]'
         ]
-       
+
     ],
     'preview' => [
         'sanity' => [
@@ -43,13 +43,16 @@ return [
                 'mode' => 'fit'
             ],
             'gallery' => [
-                'size' => 'x400', 
-            //    '4c' => ['creator'=>'Robbie Øfchen']
+                'size' => 'x400',
+                //    '4c' => ['creator'=>'Robbie Øfchen']
             ],
             'gallery_big' => [
-                'size' => '900x', 
-            //    '4c' => ['creator'=>'Robbie Øfchen']
-            ]
+                'size' => '900x',
+                //    '4c' => ['creator'=>'Robbie Øfchen']
+            ],
+            '300' => ['size' => '300x'],
+            '600' => ['size' => '600x'],
+            '900' => ['size' => '900x'],
         ]
     ],
     'plugins' => [
@@ -57,16 +60,15 @@ return [
     ],
     'hooks' => [
         'after_build' => function ($conf) {
-            file_put_contents($conf['dist'].'/Version', date("YmdHis"));
-            
+            file_put_contents($conf['dist'] . '/Version', date("YmdHis"));
+
             #$cmd = "/usr/bin/rsync -av {$conf['dist']}/ {$conf['base']}/../www/htdocs/";
             $cmd = "cp -R {$conf['dist']}/* {$conf['base']}/../www/htdocs/";
             print "$cmd\n";
-            $output ="";
+            $output = "";
             $ok = exec($cmd, $output, $rc);
             var_dump($output);
             var_dump($rc);
-           
         }
     ]
 ];

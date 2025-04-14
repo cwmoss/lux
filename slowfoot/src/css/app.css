@@ -175,6 +175,7 @@ section h2{
   margin-top: 0;
   margin-bottom: 1rem;
   font-weight: 700;
+  word-wrap: break-word;
 }
 section strong{
   font-family:var(--ff-alt);
@@ -191,6 +192,7 @@ aside{
 }
 aside img{
   max-width: 100%;
+  width: 50%;
   height: auto;
 }
 nav{
