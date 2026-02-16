@@ -12,13 +12,13 @@ use function phuety\dbg;
 
 
 
-class template_page_component extends component {
-    public string $uid = "template_page---69929e7a03809";
+class template_content_component extends component {
+    public string $uid = "template_content---6992848de8941";
     public bool $is_layout = false;
-    public string $name = "template_page";
-    public string $tagname = "template.page";
+    public string $name = "template_content";
+    public string $tagname = "template.content";
     public bool $has_template = true;
-    public bool $has_code = true;
+    public bool $has_code = false;
     public bool $has_style = false;
     public array $assets = array (
 );
@@ -28,16 +28,10 @@ class template_page_component extends component {
     public ?array $components = array (
   0 => 'layout.default',
   1 => 'sanity.text',
-  2 => 'lux.termin',
 );
 
     public function run_code(data_container $props, array $slots, data_container $helper, phuety_context $phuety, asset $assetholder): array{
         // dbg("++ props for component", $this->name, $props);
-
-
-$termine = array_map(fn($it) => $helper->ref($it), (array)$props->page->termine);
-$sections = $props->page->sections ?? [];
-
         return get_defined_vars();
     }
 
@@ -46,41 +40,21 @@ $sections = $props->page->sections ?? [];
         // if($this->is_layout) print '<!DOCTYPE html>';
         $__s = [];
         ?><?php array_unshift($__s, []); ob_start(); ?>
-
-    <?php if($__d->_get("page")->body){ ?><aside>
+    <?php if($__d->_get("page")->is_page){ ?><article>
+        <h2><?= tag::h($__d->_get("page")->title) ?></h2>
         <?php $__runner($__runner, "sanity.text", $__d->_get("phuety")->with($this->tagname, "sanity.text"), ["block"=> $__d->_get("page")->body] + array (
 ) ); ?>
-    </aside><?php } ?>
-
-
-    <main class="dates">
-        <?php if($__d->_get("termine")){ ?>
-
-            <?php foreach($__d->_get("termine") as  $termin){$__d->_add_block(["termin"=>$termin ]); ?><?php $__runner($__runner, "lux.termin", $__d->_get("phuety")->with($this->tagname, "lux.termin"), ["termin"=> $__d->_get("termin")] + array (
-) ); ?><?php $__d->_remove_block();} ?>
-
-        <?php } else { ?><aside>
-            <p>Leider gerade keine Termine 😩</p>
-        </aside><?php } ?>
-        
-
-    </main>
-
-    <aside foreach="sections as section">
-        <?php $__runner($__runner, "sanity.text", $__d->_get("phuety")->with($this->tagname, "sanity.text"), ["block"=> $__d->_get("doc")->body, "profile"=> $__d->_get("small"), "lightbox"=> $__d->_get("gallery_big")] + array (
-) ); ?>
-    </aside>
-
+    </article><?php } ?>
 <?php $__runner($__runner, "layout.default", $__d->_get("phuety")->with($this->tagname, "layout.default"), ["page"=> $__d->_get("page")] + array (
-  'lang' => 'en',
+  'lang' => 'de',
 ) , ["default" => ob_get_clean()]+array_shift($__s)); ?><?php // return ob_get_clean();
         // dbg("+++ assetsholder ", $this->is_start, $this->assetholder);
     }
 
     public function debug_info(){
         return array (
-  'src' => '/Users/rw/dev/lux-berlin/slowfoot/src/templates/page.phue.php',
-  'php' => 24,
+  'src' => '/Users/rw/dev/lux-berlin/slowfoot/src/templates/content.phue.php',
+  'php' => NULL,
 );
     }
 }

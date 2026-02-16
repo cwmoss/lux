@@ -17,7 +17,7 @@ use Sanity\Client as SanityClient;
 
 
 class sanity_text_component extends component {
-    public string $uid = "sanity_text---69927a0d15787";
+    public string $uid = "sanity_text---69929e970499f";
     public bool $is_layout = false;
     public string $name = "sanity_text";
     public string $tagname = "sanity.text";
