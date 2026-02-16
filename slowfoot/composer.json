@@ -1,25 +1,16 @@
 {
-    "name": "cwmoss/slowfoot",
-    "type": "project",
-    "version": "1.0",
-    "repositories": [
-        {
-        "type": "vcs",
-        "url": "https://github.com/cwmoss/slowfoot-lib"
-        }
-    ],
-    "autoload": {
-        "files": [
-            "src/helper.php"
-        ]
-    },
-    "scripts": {
-        "post-install-cmd": "@setup",
-        "post-update-cmd": "@setup",
-        "setup": "@php slowfoot setup"
-    },
-    "require": {
-        "cwmoss/slowfoot-lib": "@dev",
-        "sanity/sanity-php": "^1.5"
+  "name": "cwmoss/lux",
+  "type": "project",
+  "minimum-stability": "dev",
+  "version": "2.0",
+  "repositories": [
+    {
+      "type": "git",
+      "url": "https://github.com/cwmoss/slowfoot"
     }
+  ],
+  "require": {
+    "cwmoss/slowfoot": "dev-main",
+    "sanity/sanity-php": "^1.5"
+  }
 }

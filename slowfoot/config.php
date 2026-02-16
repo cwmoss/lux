@@ -1,6 +1,7 @@
 <?php
 $is_buildhost = preg_match("/lux-berlin/", $_SERVER['HTTP_HOST']);
 
+
 return [
     'site_name' => 'L.U.X',
     'site_description' => 'look at beautiful works of art',

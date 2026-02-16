@@ -1,55 +1,75 @@
 /* arvo-700 - latin */
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Arvo';
+  font-family: "Arvo";
   font-style: normal;
   font-weight: 700;
-  src: url('../fonts/arvo-v20-latin-700.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
-       url('../fonts/arvo-v20-latin-700.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src:
+    url("../fonts/arvo-v20-latin-700.woff2") format("woff2"),
+    /* Chrome 36+, Opera 23+, Firefox 39+ */
+      url("../fonts/arvo-v20-latin-700.woff") format("woff"); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 /* inter-regular - latin */
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Inter';
+  font-family: "Inter";
   font-style: normal;
   font-weight: 400;
-  src: url('../fonts/inter-v12-latin-regular.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
-       url('../fonts/inter-v12-latin-regular.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src:
+    url("../fonts/inter-v12-latin-regular.woff2") format("woff2"),
+    /* Chrome 36+, Opera 23+, Firefox 39+ */
+      url("../fonts/inter-v12-latin-regular.woff") format("woff"); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 /* inter-700 - latin */
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Inter';
+  font-family: "Inter";
   font-style: normal;
   font-weight: 700;
-  src: url('../fonts/inter-v12-latin-700.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
-       url('../fonts/inter-v12-latin-700.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src:
+    url("../fonts/inter-v12-latin-700.woff2") format("woff2"),
+    /* Chrome 36+, Opera 23+, Firefox 39+ */
+      url("../fonts/inter-v12-latin-700.woff") format("woff"); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
+@property --grad1 {
+  syntax: "<color>";
+  initial-value: rgba(255, 120, 120, 0%);
+  inherits: false;
+}
+@property --grad2 {
+  syntax: "<color>";
+  initial-value: rgba(120, 120, 255, 0%);
+  inherits: false;
+}
 
-:root{
+:root {
   --color-dark: #000000;
   --color-light: #ffffff;
   --color-primary: #fd308f;
   --color-secondary: #00ffcf;
-  --ff-main: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  --ff-alt: Arvo, Georgia, 'Times New Roman', Times, serif;
+  --ff-main:
+    Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  --ff-alt: Arvo, Georgia, "Times New Roman", Times, serif;
   --deg: 60;
 }
 
 ::selection {
-
   color: var(--color-light);
   background: var(--color-primary);
-
 }
-body{
+body {
   font-family: var(--ff-main);
-  background: linear-gradient(45deg, rgba(255, 0,0, 50%), rgba(0,0,255,50%));
+  background: linear-gradient(
+    45deg,
+    rgba(255, 0, 0, 50%),
+    rgba(0, 0, 255, 50%)
+  );
   min-height: 100vh;
-  margin:0;
+  margin: 0;
   font-size: 20px;
   font-weight: 400;
   line-height: 1.5;
@@ -58,153 +78,170 @@ body * {
   box-sizing: border-box;
 }
 
-
-
-
-header{
+header {
   position: sticky;
   /* top: 0; */
   top: -2px;
+  --grad1: rgba(255, 120, 120, 0%);
+  --grad2: rgba(120, 120, 255, 0%);
+  background: linear-gradient(45deg, var(--grad1), var(--grad2));
+  transition:
+    --grad1 0.5s,
+    --grad2 0.5s;
 }
 /* für alte browser */
-header.unsticky{
+header.unsticky {
   position: relative;
 }
-header[stuck]{
+
+header[stuck] {
   /* background-color: white;   */
-  background: linear-gradient(45deg, rgba(255, 120,120, 100%), rgba(120,120,255,100%)); 
+  --grad1: rgba(255, 120, 120, 100%);
+  --grad2: rgba(120, 120, 255, 100%);
+  /* background: linear-gradient(45deg, var(--grad1), var(--grad2));
+  animation: fade-in 0.5s; */
 }
-header[stuck] h1{
+header[stuck] h1 {
   /* color:black; */
 }
 
-h1{
-  color:var(--color-light);
+@keyframes fade-in {
+  from {
+    --grad1: rgba(255, 120, 120, 0%);
+    --grad2: rgba(120, 120, 255, 0%);
+  }
+  to {
+    --grad1: rgba(255, 120, 120, 100%);
+    --grad2: rgba(120, 120, 255, 100%);
+  }
+}
+
+h1 {
+  color: var(--color-light);
   font-size: 56px;
   margin-top: 2em;
   margin-bottom: 1em;
-  margin-left:3em;
-  font-weight: 700;  
+  margin-left: 3em;
+  font-weight: 700;
 }
-.logo a{
-  color:white;
+.logo a {
+  color: white;
   text-decoration: none;
-  border:4px solid transparent;
-  padding:4px;
+  border: 4px solid transparent;
+  padding: 4px;
   transition: 20s filter linear;
 }
-.logo a:hover{
+.logo a:hover {
   border: 4px solid hsl(var(--deg), 100%, 40%);
   filter: hue-rotate(1360deg);
   border-radius: 6px;
   box-shadow: 0 0 1em yellow;
 }
-h1 .u{
+h1 .u {
   /* font-style: italic; */
 }
-h1 .l{
+h1 .l {
   /* font-style: italic; */
 }
-h1 span{
- 
+h1 span {
 }
 
-main, nav, aside, section, article{
+main,
+nav,
+aside,
+section,
+article {
   padding: 1em;
 }
 
-main.dates{
+main.dates {
   padding: 0;
   width: 100%;
 }
-article{
-  background-color: rgba(255,255,255,60%);
-  
+article {
+  background-color: rgba(255, 255, 255, 60%);
 }
-section{
+section {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
 
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
 
   -webkit-flex-wrap: wrap;
   gap: 1em;
 
-  background-color: rgba(255,255,255,80%);
+  background-color: rgba(255, 255, 255, 80%);
   min-width: 300px;
   width: 100%;
   /* min-height: 300px; */
- 
+
   border-bottom: 2px solid white;
-  
 }
-section .when{
+section .when {
   width: 200px;
   -webkit-box-flex: 0;
   -ms-flex: 0 0 0%;
-      flex: 0 0 0%;
+  flex: 0 0 0%;
 
   font-size: 64px;
-  line-height: 1.0;
+  line-height: 1;
   text-transform: uppercase;
 }
-section .bild{
-    -webkit-box-flex: 0;
-      -ms-flex: 0 0 0%;
-          flex: 0 0 0%;
+section .bild {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 0%;
+  flex: 0 0 0%;
   width: 200px;
 }
-.bild img{
+.bild img {
   max-width: 200px;
   height: auto;
 }
-section .details{
+section .details {
   /* padding-left: 1em; */
   min-width: 350px;
-  -webkit-box-flex:1;
-    -ms-flex:1;
-        flex:1;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
 }
-section h2{
+section h2 {
   font-size: 64px;
-  line-height: 1.0;
+  line-height: 1;
   margin-top: 0;
   margin-bottom: 1rem;
   font-weight: 700;
   word-wrap: break-word;
 }
-section strong{
-  font-family:var(--ff-alt);
+section strong {
+  font-family: var(--ff-alt);
   font-weight: 900;
   /* background-color: white; */
-  padding:0 3px ;
+  padding: 0 3px;
 }
-aside{
+aside {
   background-color: var(--color-dark);
 
   color: var(--color-light);
 
   margin: 2em 0;
 }
-aside img{
+aside img {
   max-width: 100%;
   width: 50%;
   height: auto;
 }
-nav{
-  
+nav {
   position: absolute;
   bottom: 0;
 
   color: white;
-
 }
 
-nav a{
+nav a {
   background-color: yellow;
   text-decoration: none;
 
@@ -215,35 +252,33 @@ nav a{
   margin: 0 2em 2em 0;
 }
 
-footer{
+footer {
   position: relative;
   min-height: 200px;
   background-image: url(../gfx/lux-blink-small-pano-ani-xs.gif);
   background-size: cover;
 }
 
-p, li{
+p,
+li {
   max-width: 50ch;
 }
 
-
-@media (min-width:600px){
-
-  section{
+@media (min-width: 600px) {
+  section {
     /* flex-wrap: nowrap; */
   }
-  footer{
+  footer {
     min-height: 600px;
     background-size: cover;
-
   }
-  nav{
+  nav {
     position: relative;
     padding: 1em;
   }
 }
 
-article.gallery_page{
+article.gallery_page {
   background-color: white;
 }
 
@@ -258,8 +293,8 @@ https://egghead.io/lessons/flexbox-create-an-automatically-responsive-flexbox-ga
   gap: 6px;
 }
 .gallery:after {
-  content:'';
-  display:block;
+  content: "";
+  display: block;
   flex-grow: 10;
 }
 
