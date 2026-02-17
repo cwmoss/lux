@@ -13,7 +13,7 @@ use function phuety\dbg;
 
 
 class layout_default_component extends component {
-    public string $uid = "layout_default---69929e9703db6";
+    public string $uid = "layout_default---6993c6efb57e2";
     public bool $is_layout = true;
     public string $name = "layout_default";
     public string $tagname = "layout.default";
@@ -83,9 +83,9 @@ foreach ($nav['items'] as $n) { ?>
 ) ) ?>X</span></a></h1>
 
     </header>
-    <main>
-        <?=$slots["default"]??""?>
-    </main>
+
+    <?=$slots["default"]??""?>
+
 
     <footer>
         <nav>

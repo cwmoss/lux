@@ -187,9 +187,10 @@ section .when {
   -ms-flex: 0 0 0%;
   flex: 0 0 0%;
 
-  font-size: 64px;
+  font-size: 3rem;
   line-height: 1;
   text-transform: uppercase;
+  word-wrap: break-word;
 }
 section .bild {
   -webkit-box-flex: 0;
@@ -209,12 +210,18 @@ section .details {
   flex: 1;
 }
 section h2 {
-  font-size: 64px;
+  font-size: 3rem;
   line-height: 1;
   margin-top: 0;
   margin-bottom: 1rem;
   font-weight: 700;
   word-wrap: break-word;
+}
+@media (min-width: 500px) {
+  section h2,
+  section .when {
+    font-size: 4rem;
+  }
 }
 section strong {
   font-family: var(--ff-alt);

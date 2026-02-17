@@ -16,7 +16,7 @@ use slowfoot\util\html;
 
 
 class image_set_component extends component {
-    public string $uid = "image_set---69929e7a04b2d";
+    public string $uid = "image_set---6993c6efb624c";
     public bool $is_layout = false;
     public string $name = "image_set";
     public string $tagname = "image.set";

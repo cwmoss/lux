@@ -17,7 +17,7 @@ use IntlDateFormatter;
 
 
 class lux_termin_component extends component {
-    public string $uid = "lux_termin---69929e7a046cd";
+    public string $uid = "lux_termin---6993c6efb5fa9";
     public bool $is_layout = false;
     public string $name = "lux_termin";
     public string $tagname = "lux.termin";
@@ -56,7 +56,7 @@ $termin_date_fmt = function ($date, $with_weekday = true, $lang = 'de') {
     $lang = strtolower($lang) == 'de' ? 'de_DE' : 'en_US';
 
     if (date("Y", $date) != date("Y")) {
-        $Y = 'y';
+        $Y = "'&thinsp;'y";
     } else {
         $Y = '';
     }

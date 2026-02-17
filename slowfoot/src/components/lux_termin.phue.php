@@ -44,7 +44,7 @@ $termin_date_fmt = function ($date, $with_weekday = true, $lang = 'de') {
     $lang = strtolower($lang) == 'de' ? 'de_DE' : 'en_US';
 
     if (date("Y", $date) != date("Y")) {
-        $Y = 'y';
+        $Y = "'&thinsp;'y";
     } else {
         $Y = '';
     }

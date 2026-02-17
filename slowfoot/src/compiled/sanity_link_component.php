@@ -13,7 +13,7 @@ use function phuety\dbg;
 
 
 class sanity_link_component extends component {
-    public string $uid = "sanity_link---69929e9704627";
+    public string $uid = "sanity_link---6993c6efb5cd2";
     public bool $is_layout = false;
     public string $name = "sanity_link";
     public string $tagname = "sanity.link";

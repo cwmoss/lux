@@ -21,9 +21,9 @@
         <h1 class="logo"><a href="/"><span class="l">L.</span><span class="u">U.</span><span class="x" :title="title">X</span></a></h1>
 
     </header>
-    <main>
-        <slot.></slot.>
-    </main>
+
+    <slot.></slot.>
+
 
     <footer>
         <nav>
