@@ -11,30 +11,36 @@ use phuety\phuety_context;
 use function phuety\dbg;
 
 
-
 use Sanity\BlockContent;
 use Sanity\Client as SanityClient;
+use site;
+use slowfoot_plugin\sanity\sanity;
 
 
 class sanity_text_component extends component {
-    public string $uid = "sanity_text---6993c6efb5e46";
+    public string $uid = "sanity_text---6995dcfc383d7";
     public bool $is_layout = false;
     public string $name = "sanity_text";
     public string $tagname = "sanity.text";
-    public bool $has_template = true;
+    public bool $has_template = false;
     public bool $has_code = true;
     public bool $has_style = false;
     public array $assets = array (
 );
     public array $custom_tags = array (
 );
-    public int $total_rootelements = 1;
+    public int $total_rootelements = 0;
     public ?array $components = NULL;
 
     public function run_code(data_container $props, array $slots, data_container $helper, phuety_context $phuety, asset $assetholder): array{
-        // dbg("++ props for component", $this->name, $props);
+        // dbg("++ props for component", $this->name, $props);<?php
+
+
+
 
 $ds = $helper;
+$config = $props->globals->config;
+
 $block = \object_to_array($props->block);
 
 $plugin = $props->globals->config->plugins[0];
@@ -42,25 +48,39 @@ $serializers = [
     'marks' => [
         'link' => [
             'head' => function ($mark) use ($ds) {
-                return '<a href="' . sanity_link_url($mark, $ds) . '">';
+                return '<a href="' . site::link_url($mark, $ds) . '">';
             },
             'tail' => '</a>'
         ],
         'authorLink' => [
             'head' => function ($mark) use ($ds) {
-                return '<a href="' . sanity_link_url($mark, $ds) . '">';
+                return '<a href="' . site::link_url($mark, $ds) . '">';
             },
             'tail' => '</a>'
         ],
 
     ],
     'main_image' => function ($item, $parent, $htmlBuilder) use ($ds, $opts, $config) {
-        //print_r($item);
-        $asset = $ds->ref($item['attributes']['asset']);
-        return "main-image";
-        // return image_source_set($asset, [300, 600, 900]);
-        // return \slowfoot\image_tag($asset, $opts, [], $config['assets']);
-        // return "<div>IMAGE! {$opts['profile']}</div>";
+        /*
+        example for $item["attributes"]
+
+        array (size=2)
+        '_key' => string '69a80d64fe35' (length=12)
+        'asset' => 
+            array (size=2)
+            '_type' => string 'reference' (length=9)
+            '_ref' => string 'image-ee6d2784225dd6cb41eaeec278a1eaad21fa078f-2607x1287-jpg' (length=60)
+
+        */
+        // <a :href="helper.image_url(bild, 'gallery_big')"
+        // aria-label="Ich bin ein Bild, klick mich groß" class="ltbx">
+        $asset = $ds->ref($item["attributes"]["asset"]);
+        $asset = sanity::sanity_image_to_asset($asset);
+        return sprintf(
+            '<a href="%s" aria-label="Ich bin ein Bild, klick mich groß" class="ltbx">%s</a>',
+            $ds->image_url($asset, "gallery_big"),
+            site::responsive_image($asset, [300, 600, 900], $config->assets, $ds)
+        );
     },
 
     'reference' => function ($item, $parent, $htmlBuilder) use ($ds) {
@@ -91,6 +111,7 @@ if ($block) {
     ]);
     $html = nl2br($html);
 }
+print $html;
 
         return get_defined_vars();
     }
@@ -99,14 +120,14 @@ if ($block) {
         // ob_start();
         // if($this->is_layout) print '<!DOCTYPE html>';
         $__s = [];
-        ?><?= $__d->_get("html") ?><?php // return ob_get_clean();
+        ?><?php // return ob_get_clean();
         // dbg("+++ assetsholder ", $this->is_start, $this->assetholder);
     }
 
     public function debug_info(){
         return array (
   'src' => '/Users/rw/dev/lux-berlin/slowfoot/src/components/sanity_text.phue.php',
-  'php' => 3,
+  'php' => 1,
 );
     }
 }

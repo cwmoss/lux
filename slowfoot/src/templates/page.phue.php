@@ -17,8 +17,8 @@
 
     </main>
 
-    <aside foreach="sections as section">
-        <sanity.text :block="doc.body" :profile="small" :lightbox="gallery_big"></sanity.text>
+    <aside :foreach="sections as section">
+        <sanity.text :block="section.body" :profile="small" :lightbox="gallery_big"></sanity.text>
     </aside>
 
 </layout.default>
@@ -26,4 +26,4 @@
 
 
 $termine = array_map(fn($it) => $helper->ref($it), (array)$props->page->termine);
-$sections = $props->page->sections ?? [];
+$sections = array_map(fn($it) => $helper->ref($it->ref), $props->page->sections ?? []);

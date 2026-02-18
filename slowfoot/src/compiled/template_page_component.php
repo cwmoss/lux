@@ -13,7 +13,7 @@ use function phuety\dbg;
 
 
 class template_page_component extends component {
-    public string $uid = "template_page---6993c6efb4cf0";
+    public string $uid = "template_page---6995dcf42ca01";
     public bool $is_layout = false;
     public string $name = "template_page";
     public string $tagname = "template.page";
@@ -36,7 +36,7 @@ class template_page_component extends component {
 
 
 $termine = array_map(fn($it) => $helper->ref($it), (array)$props->page->termine);
-$sections = $props->page->sections ?? [];
+$sections = array_map(fn($it) => $helper->ref($it->ref), $props->page->sections ?? []);
 
         return get_defined_vars();
     }
@@ -66,10 +66,10 @@ $sections = $props->page->sections ?? [];
 
     </main>
 
-    <aside foreach="sections as section">
-        <?php $__runner($__runner, "sanity.text", $__d->_get("phuety")->with($this->tagname, "sanity.text"), ["block"=> $__d->_get("doc")->body, "profile"=> $__d->_get("small"), "lightbox"=> $__d->_get("gallery_big")] + array (
+    <?php foreach($__d->_get("sections") as  $section){$__d->_add_block(["section"=>$section ]); ?><aside>
+        <?php $__runner($__runner, "sanity.text", $__d->_get("phuety")->with($this->tagname, "sanity.text"), ["block"=> $__d->_get("section")->body, "profile"=> $__d->_get("small"), "lightbox"=> $__d->_get("gallery_big")] + array (
 ) ); ?>
-    </aside>
+    </aside><?php $__d->_remove_block();} ?>
 
 <?php $__runner($__runner, "layout.default", $__d->_get("phuety")->with($this->tagname, "layout.default"), ["page"=> $__d->_get("page")] + array (
   'lang' => 'en',

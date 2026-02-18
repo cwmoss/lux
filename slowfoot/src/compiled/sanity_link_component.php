@@ -12,8 +12,11 @@ use function phuety\dbg;
 
 
 
+use site;
+
+
 class sanity_link_component extends component {
-    public string $uid = "sanity_link---6993c6efb5cd2";
+    public string $uid = "sanity_link---6995dcfc38165";
     public bool $is_layout = false;
     public string $name = "sanity_link";
     public string $tagname = "sanity.link";
@@ -29,22 +32,7 @@ class sanity_link_component extends component {
 
     public function run_code(data_container $props, array $slots, data_container $helper, phuety_context $phuety, asset $assetholder): array{
         // dbg("++ props for component", $this->name, $props);
-$link = $props->navitem->link;
-
-$url = $link->internal ?
-    $helper->path($link->internal->_ref)
-    : ($link->route ? path_page($link->route)
-        : $link->external);
-$text = $link->text;
-// $text = $opts['text'] ?: $sl['text'];
-if (!$text) {
-    if ($link->internal) {
-        $internal = $helper->ref($link->internal);
-        $text = $internal->title;
-    } else {
-        $text = $url;
-    }
-}
+[$url, $text] = site::link($props->navitem->link, $helper);
 // debug_js("int", $internal);
 
         return get_defined_vars();
