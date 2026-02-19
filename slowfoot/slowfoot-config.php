@@ -75,7 +75,7 @@ return new configuration(
             file_put_contents($conf->dist . '/Version', date("YmdHis"));
 
             #$cmd = "/usr/bin/rsync -av {$conf['dist']}/ {$conf['base']}/../www/htdocs/";
-            $cmd = "cp -R {$conf->dist}/* {$conf['base']}/../www/htdocs/";
+            $cmd = "cp -R {$conf->dist}/* {$conf['base']}/../../www/htdocs/";
             print "$cmd\n";
             $output = "";
             $ok = exec($cmd, $output, $rc);
