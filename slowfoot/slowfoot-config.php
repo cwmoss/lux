@@ -22,7 +22,7 @@ return new configuration(
     // TODO: solve genenv vs ENV problem
     path_prefix: getenv('PATH_PREFIX') ?: $_ENV['PATH_PREFIX'] ?: '',
     title_template: '',
-    store: 'sqlite',
+    store: 'memory',
     template_engine: phuety_adapter::class,
     plugins: [
         new sanity\sanity('pna8s3iv', $_ENV['SANITY_TOKEN'] ?? "")
@@ -41,9 +41,9 @@ return new configuration(
         ]
     ],*/
     templates: [
-        'page' => '/:slug.current',
         'content' => '/:slug.current',
         'gallery_page' => '/galerie/:slug.current',
+        'page' => '/:slug.current',
     ],
     assets: new img_config(
         download: true,
@@ -75,12 +75,12 @@ return new configuration(
             file_put_contents($conf->dist . '/Version', date("YmdHis"));
 
             #$cmd = "/usr/bin/rsync -av {$conf['dist']}/ {$conf['base']}/../www/htdocs/";
-            $cmd = "cp -R {$conf->dist}/* {$conf['base']}/../../www/htdocs/";
+            $cmd = "cp -R {$conf->dist}/* {$conf->base}/../../www/htdocs/";
             print "$cmd\n";
             $output = "";
             $ok = exec($cmd, $output, $rc);
             var_dump($output);
-            var_dump($rc);
+            // var_dump($rc);
         }
     ]
 );
