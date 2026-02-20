@@ -14,6 +14,7 @@ use slowfoot_plugin\sanity;
 use slowfoot\image\configuration as img_config;
 
 $is_buildhost = preg_match("/lux-berlin/", $_SERVER['HTTP_HOST']);
+$is_dev = $_ENV["SLFT_ENV"] == "dev";
 
 return new configuration(
     site_name: 'L.U.X',
@@ -71,9 +72,9 @@ return new configuration(
     ),
 
     hooks: [
-        'after_build' => function (configuration $conf) {
+        'after_build' => function (configuration $conf) use ($is_dev) {
             file_put_contents($conf->dist . '/Version', date("YmdHis"));
-
+            if ($is_dev) return;
             #$cmd = "/usr/bin/rsync -av {$conf['dist']}/ {$conf['base']}/../www/htdocs/";
             $cmd = "cp -R {$conf->dist}/* {$conf->base}/../../www/htdocs/";
             print "$cmd\n";

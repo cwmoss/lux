@@ -13,7 +13,7 @@ use function phuety\dbg;
 
 
 class template_content_component extends component {
-    public string $uid = "template_content---69987fc5335b7";
+    public string $uid = "template_content---6998891c8cb96";
     public bool $is_layout = false;
     public string $name = "template_content";
     public string $tagname = "template.content";
