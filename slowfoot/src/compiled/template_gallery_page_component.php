@@ -16,7 +16,7 @@ use slowfoot_plugin\sanity\sanity;
 
 
 class template_gallery_page_component extends component {
-    public string $uid = "template_gallery_page---6998891c8ebb7";
+    public string $uid = "template_gallery_page---69988d26f20c8";
     public bool $is_layout = false;
     public string $name = "template_gallery_page";
     public string $tagname = "template.gallery.page";

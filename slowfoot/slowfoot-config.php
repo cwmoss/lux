@@ -23,7 +23,7 @@ return new configuration(
     // TODO: solve genenv vs ENV problem
     path_prefix: getenv('PATH_PREFIX') ?: $_ENV['PATH_PREFIX'] ?: '',
     title_template: '',
-    store: 'memory',
+    store: $is_dev ? 'sqlite' : 'memory',
     template_engine: phuety_adapter::class,
     plugins: [
         new sanity\sanity('pna8s3iv', $_ENV['SANITY_TOKEN'] ?? "")
