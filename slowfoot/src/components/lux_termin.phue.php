@@ -12,9 +12,9 @@
     <div class="details">
         <h2>{{termin.title}}</h2>
 
-        <h3 :if="doc.subtitle">{{termin.subtitle}}</h3>
+        <h3 :if="termin.subtitle">{{termin.subtitle}}</h3>
 
-        <sanity.text :if="termin.body" :text="termin.body"></sanity.text>
+        <sanity.text :if="termin.body" :block="termin.body"></sanity.text>
 
         <p :if="eintritt" :html="eintritt"></p>
 

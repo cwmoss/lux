@@ -17,7 +17,7 @@ use IntlDateFormatter;
 
 
 class lux_termin_component extends component {
-    public string $uid = "lux_termin---699768ff9acf4";
+    public string $uid = "lux_termin---69987fc5382e5";
     public bool $is_layout = false;
     public string $name = "lux_termin";
     public string $tagname = "lux.termin";
@@ -100,9 +100,9 @@ $termin_date_fmt = function ($date, $with_weekday = true, $lang = 'de') {
     <div class="details">
         <h2><?= tag::h($__d->_get("termin")->title) ?></h2>
 
-        <?php if($__d->_get("doc")->subtitle){ ?><h3><?= tag::h($__d->_get("termin")->subtitle) ?></h3><?php } ?>
+        <?php if($__d->_get("termin")->subtitle){ ?><h3><?= tag::h($__d->_get("termin")->subtitle) ?></h3><?php } ?>
 
-        <?php if($__d->_get("termin")->body){ ?><?php $__runner($__runner, "sanity.text", $__d->_get("phuety")->with($this->tagname, "sanity.text"), ["text"=> $__d->_get("termin")->body] + array (
+        <?php if($__d->_get("termin")->body){ ?><?php $__runner($__runner, "sanity.text", $__d->_get("phuety")->with($this->tagname, "sanity.text"), ["block"=> $__d->_get("termin")->body] + array (
 ) ); ?><?php } ?>
 
         <?php if($__d->_get("eintritt")){ ?><p><?= $__d->_get("eintritt") ?></p><?php } ?>
