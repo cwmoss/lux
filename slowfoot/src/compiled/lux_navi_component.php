@@ -13,7 +13,7 @@ use function phuety\dbg;
 
 
 class lux_navi_component extends component {
-    public string $uid = "lux_navi---699b68ae0943f";
+    public string $uid = "lux_navi---699b69ecc1526";
     public bool $is_layout = false;
     public string $name = "lux_navi";
     public string $tagname = "lux.navi";
@@ -39,7 +39,7 @@ class lux_navi_component extends component {
         // if($this->is_layout) print '<!DOCTYPE html>';
         $__s = [];
         ?><?= tag::tag_open_merged_attrs("nav", [], array (
-  'class' => 'lux_navi---699b68ae0943f root',
+  'class' => 'lux_navi---699b69ecc1526 root',
 ) , $__d->_get("props")) ?>
     <?php foreach($__d->_get("nav")->items as  $nav){$__d->_add_block(["nav"=>$nav ]); ?><?php array_unshift($__s, []); ob_start(); ?>link<?php $__runner($__runner, "sanity.link", $__d->_get("phuety")->with($this->tagname, "sanity.link"), ["navitem"=> $__d->_get("nav")] + array (
 ) , ["default" => ob_get_clean()]+array_shift($__s)); ?><?php $__d->_remove_block();} ?>
