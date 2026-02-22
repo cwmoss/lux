@@ -3,10 +3,9 @@
 </nav>
 <style>
     a {
-        color: white;
         background-color: yellow;
         text-decoration: none;
-
+        font-weight: bold;
         border-bottom: 6px solid white;
 
         display: inline-block;

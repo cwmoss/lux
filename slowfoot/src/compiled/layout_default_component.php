@@ -13,7 +13,7 @@ use function phuety\dbg;
 
 
 class layout_default_component extends component {
-    public string $uid = "layout_default---699b6765270fd";
+    public string $uid = "layout_default---699b68ae0905d";
     public bool $is_layout = true;
     public string $name = "layout_default";
     public string $tagname = "layout.default";
