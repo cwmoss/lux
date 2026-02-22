@@ -24,12 +24,9 @@
 
     <slot.></slot.>
 
+    <lux.navi :nav="nav"></lux.navi>
 
-    <footer>
-        <nav>
-            <sanity.link :foreach="nav.items as nav" :navitem="nav">link</sanity.link>
-        </nav>
-    </footer>
+    <footer></footer>
 
     <script :src="path_asset('/js/app.js', rev)"></script>
 </body>
@@ -42,8 +39,3 @@ $nav = $helper->ref($settings->nav_footer);
 debug_js("helper", $helper);
 debug_js("navigation", $nav);
 $rev = 6;
-
-/*
-foreach ($nav['items'] as $n) { ?>
-                <?= $sanity_link($n) 
-                */

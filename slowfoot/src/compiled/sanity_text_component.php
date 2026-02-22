@@ -18,7 +18,7 @@ use slowfoot_plugin\sanity\sanity;
 
 
 class sanity_text_component extends component {
-    public string $uid = "sanity_text---69988d3fa3bf0";
+    public string $uid = "sanity_text---699b676527a1e";
     public bool $is_layout = false;
     public string $name = "sanity_text";
     public string $tagname = "sanity.text";

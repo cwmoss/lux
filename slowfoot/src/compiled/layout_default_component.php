@@ -13,7 +13,7 @@ use function phuety\dbg;
 
 
 class layout_default_component extends component {
-    public string $uid = "layout_default---69988d3fa3567";
+    public string $uid = "layout_default---699b6765270fd";
     public bool $is_layout = true;
     public string $name = "layout_default";
     public string $tagname = "layout.default";
@@ -27,7 +27,7 @@ class layout_default_component extends component {
     public int $total_rootelements = 2;
     public ?array $components = array (
   0 => 'phuety.assets',
-  1 => 'sanity.link',
+  1 => 'lux.navi',
 );
 
     public function run_code(data_container $props, array $slots, data_container $helper, phuety_context $phuety, asset $assetholder): array{
@@ -39,10 +39,6 @@ debug_js("helper", $helper);
 debug_js("navigation", $nav);
 $rev = 6;
 
-/*
-foreach ($nav['items'] as $n) { ?>
-                <?= $sanity_link($n) 
-                */
         return get_defined_vars();
     }
 
@@ -86,13 +82,10 @@ foreach ($nav['items'] as $n) { ?>
 
     <?=$slots["default"]??""?>
 
+    <?php $__runner($__runner, "lux.navi", $__d->_get("phuety")->with($this->tagname, "lux.navi"), ["nav"=> $__d->_get("nav")] + array (
+) ); ?>
 
-    <footer>
-        <nav>
-            <?php foreach($__d->_get("nav")->items as  $nav){$__d->_add_block(["nav"=>$nav ]); ?><?php array_unshift($__s, []); ob_start(); ?>link<?php $__runner($__runner, "sanity.link", $__d->_get("phuety")->with($this->tagname, "sanity.link"), ["navitem"=> $__d->_get("nav")] + array (
-) , ["default" => ob_get_clean()]+array_shift($__s)); ?><?php $__d->_remove_block();} ?>
-        </nav>
-    </footer>
+    <footer></footer>
 
     <?= tag::tag_open_merged_attrs("script", ["src"=> $__d->_call("path_asset")("/js/app.js", $__d->_get("rev"))], array (
 ) ) ?></script>
@@ -105,7 +98,7 @@ foreach ($nav['items'] as $n) { ?>
     public function debug_info(){
         return array (
   'src' => '/Users/rw/dev/lux-berlin/slowfoot/src/layouts/default.phue.php',
-  'php' => 37,
+  'php' => 34,
 );
     }
 }
