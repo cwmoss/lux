@@ -17,7 +17,7 @@ use IntlDateFormatter;
 
 
 class lux_termin_component extends component {
-    public string $uid = "lux_termin---699b69ecc1e52";
+    public string $uid = "lux_termin---699dc706b9383";
     public bool $is_layout = false;
     public string $name = "lux_termin";
     public string $tagname = "lux.termin";

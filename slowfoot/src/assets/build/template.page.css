@@ -1,6 +1,7 @@
-.lux_navi---699b69ecc1526{
+.lux_navi---699dc65dbd482{
 
-    a {
+    .&.root a,
+    .&.root a:visited {
         background-color: yellow;
         text-decoration: none;
         font-weight: bold;
