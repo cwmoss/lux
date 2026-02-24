@@ -2,7 +2,8 @@
     <sanity.link :foreach="nav.items as nav" :navitem="nav">link</sanity.link>
 </nav>
 <style>
-    a {
+    a,
+    a:visited {
         background-color: yellow;
         text-decoration: none;
         font-weight: bold;
