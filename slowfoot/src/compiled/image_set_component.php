@@ -15,7 +15,7 @@ use site;
 
 
 class image_set_component extends component {
-    public string $uid = "image_set---699dc706b9e50";
+    public string $uid = "image_set---699dcfa0a89b3";
     public bool $is_layout = false;
     public string $name = "image_set";
     public string $tagname = "image.set";

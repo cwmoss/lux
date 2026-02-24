@@ -13,7 +13,7 @@ use function phuety\dbg;
 
 
 class lux_navi_component extends component {
-    public string $uid = "lux_navi---699dc7106abaf";
+    public string $uid = "lux_navi---699dcfa0a7816";
     public bool $is_layout = false;
     public string $name = "lux_navi";
     public string $tagname = "lux.navi";

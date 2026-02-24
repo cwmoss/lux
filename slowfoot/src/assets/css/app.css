@@ -320,7 +320,7 @@ https://egghead.io/lessons/flexbox-create-an-automatically-responsive-flexbox-ga
 }
 
 .gallery div {
-  height: 40vh;
+  /* height: 40vh; */
   flex-grow: 1;
 }
 
@@ -337,13 +337,13 @@ https://egghead.io/lessons/flexbox-create-an-automatically-responsive-flexbox-ga
 
 @media (max-aspect-ratio: 1/1) {
   .gallery div {
-    height: 30vh;
+    /* height: 30vh; */
   }
 }
 
 @media (max-height: 480px) {
   .gallery div {
-    height: 80vh;
+    /* height: 80vh; */
   }
 }
 
@@ -353,7 +353,7 @@ https://egghead.io/lessons/flexbox-create-an-automatically-responsive-flexbox-ga
   }
 
   .gallery div {
-    height: auto;
+    /* height: auto; */
     width: 100%;
   }
 

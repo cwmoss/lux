@@ -16,7 +16,7 @@ use site;
 
 
 class sanity_link_component extends component {
-    public string $uid = "sanity_link---699dc7106b13b";
+    public string $uid = "sanity_link---699dcfa0a7c81";
     public bool $is_layout = false;
     public string $name = "sanity_link";
     public string $tagname = "sanity.link";
